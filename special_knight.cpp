@@ -27,7 +27,7 @@ int minsteps_normal(int N,int knight[],int target[]){
         for(int i=0;i<8;i++){
             int x1=x+dx[i];
             int y1=y+dy[i];
-            if(vis[x1][y1]==0 && is_inside(x1,y1,N)){
+            if( is_inside(x1,y1,N) && vis[x1][y1]==0){
                 vis[x1][y1]=true;
                 q.push({{x1,y1},d+1});
             }
@@ -56,21 +56,21 @@ int minsteps_special(int N,int knight[],int target[]){
         for(int i=0;i<8;i++){
             int x1=x+dx[i];
             int y1=y+dy[i];
-            if(vis[x1][y1]==0 && is_inside(x1,y1,N)){
+            if( is_inside(x1,y1,N) && vis[x1][y1]==0){
                 vis[x1][y1]=1;
                 q.push({{x1,y1},d+1});
             }
             int x2=x1+dx[i];
             int y2=y1+dy[i];
             
-            if(vis[x2][y2]==0 && is_inside(x2,y2,N)){
+            if( is_inside(x2,y2,N) && vis[x2][y2]==0){
                 vis[x2][y2]=1;
                 q.push({{x2,y2},d+1});
             }
             int x3=x2+dx[i];
             int y3=y2+dy[i];
             
-             if(vis[x3][y3]==0 && is_inside(x3,y3,N)){
+             if(is_inside(x3,y3,N) && vis[x3][y3]==0){
                 vis[x3][y3]=1;
                 q.push({{x3,y3},d+1});
             }
